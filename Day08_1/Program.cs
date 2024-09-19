@@ -1,45 +1,11 @@
-﻿using var inputStream = File.OpenRead("input.txt");
-using var reader = new StreamReader(inputStream);
+﻿using Day08_1;
 
-var directions = reader.ReadLine()!;
-
-reader.ReadLine();
-
-var nodes = new Dictionary<string, Node>();
-
-while (reader.ReadLine() is { } line)
+internal class Program
 {
-    var parts = line.Split('=');
-    var nodeName = parts[0].Trim();
-    var destinations = parts[1].Trim().Trim('(', ')').Split(',');
-    var left = destinations[0].Trim();
-    var right = destinations[1].Trim();
-
-    var node = new Node(nodeName, left, right);
-    nodes[nodeName] = node;
-}
-
-int steps = 0;
-var currentInstruction = 0;
-var currentNode = "AAA";
-while (currentNode != "ZZZ")
-{
-    var instruction = directions[currentInstruction];
-    currentInstruction++;
-    currentInstruction %= directions.Length;
-    steps++;
-
-    var node = nodes[currentNode];
-    if (instruction == 'L')
+    private static void Main()
     {
-        currentNode = node.Left;
-    }
-    else
-    {
-        currentNode = node.Right;
+        var graph = new Graph("input.txt");
+        int steps = graph.TraverseGraph();
+        Console.WriteLine(steps);
     }
 }
-
-Console.WriteLine(steps);
-
-record Node(string Name, string Left, string Right);

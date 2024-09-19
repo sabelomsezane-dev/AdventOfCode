@@ -1,0 +1,28 @@
+During the interview, I mentioned that I could help improve and optimize the code to make it more efficient and maintainable.
+
+One key improvement I suggested was applying object-oriented principles, specifically encapsulation and inheritance.
+Since everything in OOP is treated as a class or object, these principles would help structure the code better and make 
+it more modular.
+
+I also pointed out that I can move the logic for processing the information in the while loops into separate methods
+
+
+I also pointed out the overuse of the Trim() method, suggesting that using regular expressions (regex) could be a more 
+efficient and cleaner solution for certain scenarios.
+
+### Summary of Changes I Made:
+
+1. Encapsulation in Classes: I refactored the Graph class to handle data reading and node parsing, keeping related 
+functionality together and improving maintainability.
+
+   
+2. Methods for Specific Functionality: The TraverseGraph method in the Graph class now handles the traversal logic, 
+making the code more organized and easier to follow.
+
+
+3. Node Class for Reusability: A separate Node class was introduced to manage node-specific information. This promotes code 
+reusability and supports inheritance, contributing to cleaner and more modular code.
+
+
+4. Incorporation of Regular Expressions: I incorporated regex to accurately capture node connections. This reduces the manual
+use of the `.Trim()` method, ensuring correctness through clearer validation steps.
